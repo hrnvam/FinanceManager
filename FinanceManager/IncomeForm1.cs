@@ -2,20 +2,19 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 
 namespace FinanceManager
 {
-    public partial class IncomeForm : UserControl
+    public partial class IncomeForm1 : UserControl
     {
-        //string stringConnect = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\HP\Documents\FinanceManager.mdf;Integrated Security=True;Connect Timeout=30";
         private int getID = 0;
-        public IncomeForm()
+        public IncomeForm1()
         {
             InitializeComponent();
             displayCategyList();
@@ -30,7 +29,7 @@ namespace FinanceManager
         }
         public void displayCategyList()
         {
-            using(SqlConnection connect = new SqlConnection(Session.stringConnection))
+            using (SqlConnection connect = new SqlConnection(Session.stringConnection))
             {
                 connect.Open();
                 using (SqlCommand cmd = new SqlCommand("SELECT category FROM categories WHERE type = @type AND status = @status AND user_id = @UserId", connect))
@@ -51,19 +50,25 @@ namespace FinanceManager
             }
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+
+
+        private void IncomeForm1_VisibleChanged(object sender, EventArgs e)
         {
-            
+            if (this.Visible)
+            {
+                displayCategyList();
+            }
         }
 
         private void IncomeAddButton_Click(object sender, EventArgs e)
         {
-            if(IncomeCategory.SelectedIndex == -1 || IncomeItem.Text.Trim() == "" || IncomeIncome.Text.Trim() == "")
+            if (IncomeCategory.SelectedIndex == -1 || IncomeItem.Text.Trim() == "" || IncomeIncome.Text.Trim() == "")
             {
                 MessageBox.Show("Please fill all fields", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            } else
+            }
+            else
             {
-                using(SqlConnection connect = new SqlConnection(Session.stringConnection))
+                using (SqlConnection connect = new SqlConnection(Session.stringConnection))
                 {
                     connect.Open();
                     string query = "INSERT INTO income (category, item, income, description, date_income, date_insert, user_id)" +
@@ -86,19 +91,6 @@ namespace FinanceManager
                 }
             }
             displayIncomeData();
-        }
-
-        public void clearFields()
-        {
-            IncomeCategory.SelectedIndex = -1;
-            IncomeItem.Text = "";
-            IncomeIncome.Text = "";
-            IncomeDescription.Text = "";
-            IncomeDate.Value = DateTime.Now;
-        }
-        private void IncomeClearButton_Click(object sender, EventArgs e)
-        {
-            clearFields();
         }
 
         private void IncomeUpdateButton_Click(object sender, EventArgs e)
@@ -136,18 +128,9 @@ namespace FinanceManager
             displayIncomeData();
         }
 
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void IncomeClearButton_Click(object sender, EventArgs e)
         {
-            if (e.RowIndex != -1)
-            {
-                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
-                getID = (int)row.Cells[0].Value;
-                IncomeCategory.SelectedItem = row.Cells[1].Value.ToString();
-                IncomeItem.Text = row.Cells[2].Value.ToString();
-                IncomeIncome.Text = row.Cells[3].Value.ToString();
-                IncomeDescription.Text = row.Cells[4].Value.ToString();
-                IncomeDate.Value = Convert.ToDateTime(row.Cells[5].Value.ToString());
-            }
+            clearFields();
         }
 
         private void IncomeDeleteButton_Click(object sender, EventArgs e)
@@ -158,7 +141,7 @@ namespace FinanceManager
             }
             else
             {
-                if(MessageBox.Show("Are you sure you want to delete this item?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Are you sure you want to delete this item?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     using (SqlConnection connect = new SqlConnection(Session.stringConnection))
                     {
@@ -182,24 +165,26 @@ namespace FinanceManager
             displayIncomeData();
         }
 
-        private void IncomeForm_VisibleChanged(object sender, EventArgs e)
+        public void clearFields()
         {
-            if (this.Visible)
-            {
-                displayCategyList();
-            }
+            IncomeCategory.SelectedIndex = -1;
+            IncomeItem.Text = "";
+            IncomeIncome.Text = "";
+            IncomeDescription.Text = "";
+            IncomeDate.Value = DateTime.Now;
         }
 
-        private void IncomeForm_Load(object sender, EventArgs e)
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            foreach (Control ctrl in this.Controls)
+            if (e.RowIndex != -1)
             {
-                if (ctrl is Button btn)
-                {
-                    btn.FlatStyle = FlatStyle.Flat;
-                    Console.WriteLine($"{btn.Name}: {btn.FlatStyle}");
-
-                }
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+                getID = (int)row.Cells[0].Value;
+                IncomeCategory.SelectedItem = row.Cells[1].Value.ToString();
+                IncomeItem.Text = row.Cells[2].Value.ToString();
+                IncomeIncome.Text = row.Cells[3].Value.ToString();
+                IncomeDescription.Text = row.Cells[4].Value.ToString();
+                IncomeDate.Value = Convert.ToDateTime(row.Cells[5].Value.ToString());
             }
         }
     }

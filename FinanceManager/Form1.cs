@@ -14,7 +14,7 @@ namespace FinanceManager
 {
     public partial class Form1 : Form
     {
-        private string stringConnection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\HP\Documents\FinanceManager.mdf;Integrated Security=True;Connect Timeout=30";
+        //private string stringConnection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\HP\Documents\FinanceManager_test.mdf;Integrated Security=True;Connect Timeout=30";
         public Form1()
         {
             InitializeComponent();
@@ -36,8 +36,6 @@ namespace FinanceManager
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            UIHelper.StyleRoundedButton(LoginButton, 12, Color.SteelBlue, 2);
-            UIHelper.StyleRoundedTextBox(LoginUsername,5, Color.SteelBlue);
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -82,31 +80,48 @@ namespace FinanceManager
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            using (SqlConnection connect = new SqlConnection(stringConnection))
+            using (SqlConnection connect = new SqlConnection(Session.stringConnection))
             {
                 try
                 {
                     connect.Open();
 
-                    string selectData = "SELECT COUNT(*) FROM users WHERE username=@username AND password=@password";
+                    string selectData = "SELECT id FROM users WHERE username=@username AND password=@password";
                     using (SqlCommand cmd = new SqlCommand(selectData, connect))
                     {
                         cmd.Parameters.AddWithValue("@username", LoginUsername.Text.Trim());
                         cmd.Parameters.AddWithValue("@password", LoginPassword.Text.Trim());
 
-                        int userCount = (int)cmd.ExecuteScalar();
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                int userId = (int)reader["id"];
+                                Session.UserId = userId;
 
-                        if (userCount > 0)
-                        {
-                            MessageBox.Show("Login successful", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            MainForm mForm = new MainForm();
-                            mForm.Show();
-                            this.Hide();
+                                MessageBox.Show("Login successful", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MainForm mForm = new MainForm();
+                                mForm.Show();
+                                this.Hide();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Incorrect username or password", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
-                        else
-                        {
-                            MessageBox.Show("Incorrect username/password", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
+                        //int userCount = (int)cmd.ExecuteScalar();
+
+                        //if (userCount > 0)
+                        //{
+                        //    MessageBox.Show("Login successful", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //    MainForm mForm = new MainForm();
+                        //    mForm.Show();
+                        //    this.Hide();
+                        //}
+                        //else
+                        //{
+                        //    MessageBox.Show("Incorrect username/password", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //}
                     }
                 }
                 catch (Exception ex)

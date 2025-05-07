@@ -47,9 +47,12 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.DashboardTodayButton = new System.Windows.Forms.Button();
             this.DashboardWeekButton = new System.Windows.Forms.Button();
             this.DashboardMonthButton = new System.Windows.Forms.Button();
+            this.DashboardYearButton = new System.Windows.Forms.Button();
+            this.IncomeLabel = new System.Windows.Forms.Label();
+            this.ExpensesLabel = new System.Windows.Forms.Label();
+            this.BalanceLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -74,6 +77,7 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(225)))), ((int)(((byte)(233)))));
+            this.panel4.Controls.Add(this.BalanceLabel);
             this.panel4.Controls.Add(this.label3);
             this.panel4.Controls.Add(this.pictureBox3);
             this.panel4.Location = new System.Drawing.Point(611, 19);
@@ -90,7 +94,6 @@
             this.label3.Size = new System.Drawing.Size(91, 23);
             this.label3.TabIndex = 5;
             this.label3.Text = "Balance";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // pictureBox3
             // 
@@ -105,6 +108,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(225)))), ((int)(((byte)(233)))));
+            this.panel3.Controls.Add(this.ExpensesLabel);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.pictureBox2);
             this.panel3.Location = new System.Drawing.Point(307, 19);
@@ -135,6 +139,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(225)))), ((int)(((byte)(233)))));
+            this.panel2.Controls.Add(this.IncomeLabel);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Location = new System.Drawing.Point(0, 19);
@@ -217,7 +222,6 @@
             this.chart1.Size = new System.Drawing.Size(532, 338);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
-            this.chart1.Click += new System.EventHandler(this.chart1_Click);
             // 
             // chart2
             // 
@@ -253,58 +257,98 @@
             this.chart2.TabIndex = 2;
             this.chart2.Text = "chart2";
             // 
-            // DashboardTodayButton
-            // 
-            this.DashboardTodayButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(249)))));
-            this.DashboardTodayButton.FlatAppearance.BorderSize = 0;
-            this.DashboardTodayButton.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Bold);
-            this.DashboardTodayButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.DashboardTodayButton.Location = new System.Drawing.Point(65, 557);
-            this.DashboardTodayButton.Name = "DashboardTodayButton";
-            this.DashboardTodayButton.Size = new System.Drawing.Size(132, 42);
-            this.DashboardTodayButton.TabIndex = 12;
-            this.DashboardTodayButton.Text = "Today";
-            this.DashboardTodayButton.UseVisualStyleBackColor = false;
-            // 
             // DashboardWeekButton
             // 
-            this.DashboardWeekButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(249)))));
-            this.DashboardWeekButton.FlatAppearance.BorderSize = 0;
+            this.DashboardWeekButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(234)))), ((int)(((byte)(243)))));
+            this.DashboardWeekButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(144)))), ((int)(((byte)(164)))));
+            this.DashboardWeekButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DashboardWeekButton.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Bold);
             this.DashboardWeekButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.DashboardWeekButton.Location = new System.Drawing.Point(203, 557);
+            this.DashboardWeekButton.Location = new System.Drawing.Point(27, 557);
+            this.DashboardWeekButton.Margin = new System.Windows.Forms.Padding(0);
             this.DashboardWeekButton.Name = "DashboardWeekButton";
-            this.DashboardWeekButton.Size = new System.Drawing.Size(132, 42);
-            this.DashboardWeekButton.TabIndex = 13;
+            this.DashboardWeekButton.Size = new System.Drawing.Size(175, 42);
+            this.DashboardWeekButton.TabIndex = 12;
             this.DashboardWeekButton.Text = "Week";
             this.DashboardWeekButton.UseVisualStyleBackColor = false;
+            this.DashboardWeekButton.Click += new System.EventHandler(this.DashboardWeekButton_Click);
             // 
             // DashboardMonthButton
             // 
-            this.DashboardMonthButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(249)))));
-            this.DashboardMonthButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(225)))), ((int)(((byte)(233)))));
+            this.DashboardMonthButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(234)))), ((int)(((byte)(243)))));
+            this.DashboardMonthButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(144)))), ((int)(((byte)(164)))));
+            this.DashboardMonthButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DashboardMonthButton.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Bold);
             this.DashboardMonthButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.DashboardMonthButton.Location = new System.Drawing.Point(341, 557);
+            this.DashboardMonthButton.Location = new System.Drawing.Point(200, 557);
+            this.DashboardMonthButton.Margin = new System.Windows.Forms.Padding(0);
             this.DashboardMonthButton.Name = "DashboardMonthButton";
-            this.DashboardMonthButton.Size = new System.Drawing.Size(132, 42);
-            this.DashboardMonthButton.TabIndex = 14;
+            this.DashboardMonthButton.Size = new System.Drawing.Size(180, 42);
+            this.DashboardMonthButton.TabIndex = 13;
             this.DashboardMonthButton.Text = "Month";
             this.DashboardMonthButton.UseVisualStyleBackColor = false;
+            this.DashboardMonthButton.Click += new System.EventHandler(this.DashboardMonthButton_Click);
+            // 
+            // DashboardYearButton
+            // 
+            this.DashboardYearButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(234)))), ((int)(((byte)(243)))));
+            this.DashboardYearButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(144)))), ((int)(((byte)(164)))));
+            this.DashboardYearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DashboardYearButton.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Bold);
+            this.DashboardYearButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.DashboardYearButton.Location = new System.Drawing.Point(376, 557);
+            this.DashboardYearButton.Margin = new System.Windows.Forms.Padding(0);
+            this.DashboardYearButton.Name = "DashboardYearButton";
+            this.DashboardYearButton.Size = new System.Drawing.Size(180, 42);
+            this.DashboardYearButton.TabIndex = 14;
+            this.DashboardYearButton.Text = "Year";
+            this.DashboardYearButton.UseVisualStyleBackColor = false;
+            this.DashboardYearButton.Click += new System.EventHandler(this.DashboardYearButton_Click);
+            // 
+            // IncomeLabel
+            // 
+            this.IncomeLabel.AutoSize = true;
+            this.IncomeLabel.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IncomeLabel.Location = new System.Drawing.Point(112, 47);
+            this.IncomeLabel.Name = "IncomeLabel";
+            this.IncomeLabel.Size = new System.Drawing.Size(21, 23);
+            this.IncomeLabel.TabIndex = 4;
+            this.IncomeLabel.Text = "0";
+            // 
+            // ExpensesLabel
+            // 
+            this.ExpensesLabel.AutoSize = true;
+            this.ExpensesLabel.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ExpensesLabel.Location = new System.Drawing.Point(106, 47);
+            this.ExpensesLabel.Name = "ExpensesLabel";
+            this.ExpensesLabel.Size = new System.Drawing.Size(21, 23);
+            this.ExpensesLabel.TabIndex = 5;
+            this.ExpensesLabel.Text = "0";
+            // 
+            // BalanceLabel
+            // 
+            this.BalanceLabel.AutoSize = true;
+            this.BalanceLabel.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BalanceLabel.Location = new System.Drawing.Point(115, 47);
+            this.BalanceLabel.Name = "BalanceLabel";
+            this.BalanceLabel.Size = new System.Drawing.Size(21, 23);
+            this.BalanceLabel.TabIndex = 6;
+            this.BalanceLabel.Text = "0";
             // 
             // DashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(233)))), ((int)(((byte)(242)))));
+            this.Controls.Add(this.DashboardYearButton);
             this.Controls.Add(this.DashboardMonthButton);
             this.Controls.Add(this.DashboardWeekButton);
-            this.Controls.Add(this.DashboardTodayButton);
             this.Controls.Add(this.chart2);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.panel1);
             this.Name = "DashboardForm";
             this.Size = new System.Drawing.Size(924, 648);
+            this.VisibleChanged += new System.EventHandler(this.DashboardForm_VisibleChanged);
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
@@ -335,8 +379,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
-        private System.Windows.Forms.Button DashboardTodayButton;
         private System.Windows.Forms.Button DashboardWeekButton;
         private System.Windows.Forms.Button DashboardMonthButton;
+        private System.Windows.Forms.Button DashboardYearButton;
+        private System.Windows.Forms.Label IncomeLabel;
+        private System.Windows.Forms.Label BalanceLabel;
+        private System.Windows.Forms.Label ExpensesLabel;
     }
 }

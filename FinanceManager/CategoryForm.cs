@@ -13,7 +13,7 @@ namespace FinanceManager
 {
     public partial class CategoryForm : UserControl
     {
-        string stringConnect = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\HP\Documents\FinanceManager.mdf;Integrated Security=True;Connect Timeout=30";
+        //string stringConnect = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\HP\Documents\FinanceManager.mdf;Integrated Security=True;Connect Timeout=30";
         private int getID = 0;
         public CategoryForm()
         {
@@ -21,10 +21,6 @@ namespace FinanceManager
             displayCategoryList();
             UIHelper.StyleRoundedPanel(panel1, 12);
             UIHelper.StyleRoundedPanel(panel2, 12);
-            UIHelper.StyleRoundedButton(CategoryAddButton, 12);
-            UIHelper.StyleRoundedButton(CategoryUpdateButton, 12);
-            UIHelper.StyleRoundedButton(CategoryClearButton, 12);
-            UIHelper.StyleRoundedButton(CategoryDeleteButton, 12);
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -35,8 +31,11 @@ namespace FinanceManager
         public void displayCategoryList()
         {
             CategoryData data = new CategoryData();
-            List<CategoryData> listData = data.categoryListData();
+            List<CategoryData> listData = data.categoryListData(Session.UserId);
             dataGridView1.DataSource = listData;
+            //CategoryData data = new CategoryData();
+            //List<CategoryData> listData = data.categoryListData();
+            //dataGridView1.DataSource = listData;
         }
 
         private void CategoryAddButton_Click(object sender, EventArgs e)
@@ -47,15 +46,16 @@ namespace FinanceManager
             }
             else
             {
-                using(SqlConnection connect = new SqlConnection(stringConnect))
+                using(SqlConnection connect = new SqlConnection(Session.stringConnection))
                 {
                     connect.Open();
-                    using(SqlCommand cmd = new SqlCommand("INSERT INTO categories (category, type, status, date_insert) VALUES (@CategoryName, @CategoryType, @CategoryStatus, @Date)", connect))
+                    using(SqlCommand cmd = new SqlCommand("INSERT INTO categories (category, type, status, date_insert, user_id) VALUES (@CategoryName, @CategoryType, @CategoryStatus, @Date, @UserId)", connect))
                     {
                         cmd.Parameters.AddWithValue("@CategoryName", CategoryName.Text);
                         cmd.Parameters.AddWithValue("@CategoryType", CategoryType.SelectedItem.ToString());
                         cmd.Parameters.AddWithValue("@CategoryStatus", CategoryStatus.SelectedItem.ToString());
                         cmd.Parameters.AddWithValue("@Date", DateTime.Today);
+                        cmd.Parameters.AddWithValue("@UserId", Session.UserId);
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Category added successfully", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -64,6 +64,7 @@ namespace FinanceManager
                     clearFields();
                 }
             }
+            displayCategoryList();
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -89,10 +90,10 @@ namespace FinanceManager
             {
                 if(MessageBox.Show("Are you sure you want to update this category?", "Update Category", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    using (SqlConnection connect = new SqlConnection(stringConnect))
+                    using (SqlConnection connect = new SqlConnection(Session.stringConnection))
                     {
                         connect.Open();
-                        string query = "UPDATE categories SET category = @CategoryName, type= @CategoryType, status = @CategoryStatus WHERE id = @id";
+                        string query = "UPDATE categories SET category = @CategoryName, type= @CategoryType, status = @CategoryStatus WHERE id = @id AND user_id = @UserId";
                         using (SqlCommand cmd = new SqlCommand(query, connect))
                         {
                             cmd.Parameters.AddWithValue("@id", getID);
@@ -100,6 +101,8 @@ namespace FinanceManager
                             cmd.Parameters.AddWithValue("@CategoryType", CategoryType.SelectedItem.ToString());
                             cmd.Parameters.AddWithValue("@CategoryStatus", CategoryStatus.SelectedItem.ToString());
                             cmd.Parameters.AddWithValue("@Date", DateTime.Today);
+                            cmd.Parameters.AddWithValue("@UserId", Session.UserId);
+
                             cmd.ExecuteNonQuery();
                             MessageBox.Show("Category updated successfully", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
@@ -131,13 +134,15 @@ namespace FinanceManager
             {
                 if (MessageBox.Show("Are you sure you want to delete this category?", "Delete Category", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    using (SqlConnection connect = new SqlConnection(stringConnect))
+                    using (SqlConnection connect = new SqlConnection(Session.stringConnection))
                     {
                         connect.Open();
-                        string query = "DELETE FROM categories WHERE id = @id";
+                        string query = "DELETE FROM categories WHERE id = @id AND user_id = @UserId";
                         using (SqlCommand cmd = new SqlCommand(query, connect))
                         {
                             cmd.Parameters.AddWithValue("@id", getID);
+                            cmd.Parameters.AddWithValue("@UserId", Session.UserId);
+
                             cmd.ExecuteNonQuery();
                             MessageBox.Show("Category deleted successfully", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }

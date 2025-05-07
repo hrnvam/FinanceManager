@@ -10,7 +10,7 @@ namespace FinanceManager
 {
     internal class CategoryData
     {
-        string stringConnect = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\HP\Documents\FinanceManager.mdf;Integrated Security=True;Connect Timeout=30";
+        //string stringConnect = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\HP\Documents\FinanceManager.mdf;Integrated Security=True;Connect Timeout=30";
 
         public int ID { get; set; }
         public string Category { get; set; }
@@ -18,15 +18,16 @@ namespace FinanceManager
         public string Status { get; set; }
         public string Date { get; set; }
 
-        public List<CategoryData> categoryListData()
+        public List<CategoryData> categoryListData(int userId)
         {
             List<CategoryData> listData = new List<CategoryData>();
 
-            using (SqlConnection connect = new SqlConnection(stringConnect))
+            using (SqlConnection connect = new SqlConnection(Session.stringConnection))
             {
                 connect.Open();
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM categories", connect))
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM categories WHERE user_id = @UserId", connect))
                 {
+                    cmd.Parameters.AddWithValue("@UserId", userId);
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())

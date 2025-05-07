@@ -37,9 +37,9 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.close = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.incomeForm11 = new FinanceManager.IncomeForm1();
             this.dashboardForm1 = new FinanceManager.DashboardForm();
             this.expensesForm1 = new FinanceManager.ExpensesForm();
-            this.incomeForm1 = new FinanceManager.IncomeForm();
             this.categoryForm1 = new FinanceManager.CategoryForm();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -180,41 +180,43 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.panel1.Controls.Add(this.incomeForm11);
             this.panel1.Controls.Add(this.dashboardForm1);
             this.panel1.Controls.Add(this.expensesForm1);
-            this.panel1.Controls.Add(this.incomeForm1);
             this.panel1.Controls.Add(this.categoryForm1);
             this.panel1.Location = new System.Drawing.Point(271, 40);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(924, 648);
             this.panel1.TabIndex = 3;
             // 
+            // incomeForm11
+            // 
+            this.incomeForm11.Location = new System.Drawing.Point(0, 0);
+            this.incomeForm11.Name = "incomeForm11";
+            this.incomeForm11.Size = new System.Drawing.Size(924, 648);
+            this.incomeForm11.TabIndex = 4;
+            this.incomeForm11.Load += new System.EventHandler(this.incomeForm11_Load);
+            // 
             // dashboardForm1
             // 
             this.dashboardForm1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.dashboardForm1.Location = new System.Drawing.Point(-3, -4);
+            this.dashboardForm1.Location = new System.Drawing.Point(3, 0);
             this.dashboardForm1.Name = "dashboardForm1";
             this.dashboardForm1.Size = new System.Drawing.Size(924, 648);
             this.dashboardForm1.TabIndex = 3;
+            this.dashboardForm1.Load += new System.EventHandler(this.dashboardForm1_Load);
             // 
             // expensesForm1
             // 
-            this.expensesForm1.Location = new System.Drawing.Point(-3, -3);
+            this.expensesForm1.Location = new System.Drawing.Point(3, 0);
             this.expensesForm1.Name = "expensesForm1";
             this.expensesForm1.Size = new System.Drawing.Size(924, 648);
             this.expensesForm1.TabIndex = 2;
             // 
-            // incomeForm1
-            // 
-            this.incomeForm1.Location = new System.Drawing.Point(-3, -4);
-            this.incomeForm1.Name = "incomeForm1";
-            this.incomeForm1.Size = new System.Drawing.Size(924, 648);
-            this.incomeForm1.TabIndex = 1;
-            // 
             // categoryForm1
             // 
             this.categoryForm1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.categoryForm1.Location = new System.Drawing.Point(0, 0);
+            this.categoryForm1.Location = new System.Drawing.Point(3, 0);
             this.categoryForm1.Name = "categoryForm1";
             this.categoryForm1.Size = new System.Drawing.Size(924, 648);
             this.categoryForm1.TabIndex = 0;
@@ -253,8 +255,8 @@
         private System.Windows.Forms.Label close;
         private System.Windows.Forms.Panel panel1;
         private CategoryForm categoryForm1;
-        private IncomeForm incomeForm1;
         private ExpensesForm expensesForm1;
         private DashboardForm dashboardForm1;
+        private IncomeForm1 incomeForm11;
     }
 }
