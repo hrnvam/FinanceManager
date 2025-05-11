@@ -13,7 +13,6 @@ namespace FinanceManager
 {
     public partial class ExpensesForm : UserControl
     {
-        //string stringConnect = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\HP\Documents\FinanceManager.mdf;Integrated Security=True;Connect Timeout=30";
         private int getID = 0;
 
         public ExpensesForm()

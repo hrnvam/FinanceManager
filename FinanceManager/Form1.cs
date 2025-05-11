@@ -14,7 +14,6 @@ namespace FinanceManager
 {
     public partial class Form1 : Form
     {
-        //private string stringConnection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\HP\Documents\FinanceManager_test.mdf;Integrated Security=True;Connect Timeout=30";
         public Form1()
         {
             InitializeComponent();
@@ -109,19 +108,6 @@ namespace FinanceManager
                                 MessageBox.Show("Incorrect username or password", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
-                        //int userCount = (int)cmd.ExecuteScalar();
-
-                        //if (userCount > 0)
-                        //{
-                        //    MessageBox.Show("Login successful", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        //    MainForm mForm = new MainForm();
-                        //    mForm.Show();
-                        //    this.Hide();
-                        //}
-                        //else
-                        //{
-                        //    MessageBox.Show("Incorrect username/password", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        //}
                     }
                 }
                 catch (Exception ex)

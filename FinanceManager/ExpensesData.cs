@@ -11,7 +11,6 @@ namespace FinanceManager
 {
     internal class ExpensesData
     {
-        //string stringConnect = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\HP\Documents\FinanceManager.mdf;Integrated Security=True;Connect Timeout=30";
         public int ID { get; set; }
         public string Category { get; set; }
         public string Item { get; set; }

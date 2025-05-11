@@ -13,7 +13,6 @@ namespace FinanceManager
 {
     public partial class CategoryForm : UserControl
     {
-        //string stringConnect = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\HP\Documents\FinanceManager.mdf;Integrated Security=True;Connect Timeout=30";
         private int getID = 0;
         public CategoryForm()
         {
@@ -33,9 +32,6 @@ namespace FinanceManager
             CategoryData data = new CategoryData();
             List<CategoryData> listData = data.categoryListData(Session.UserId);
             dataGridView1.DataSource = listData;
-            //CategoryData data = new CategoryData();
-            //List<CategoryData> listData = data.categoryListData();
-            //dataGridView1.DataSource = listData;
         }
 
         private void CategoryAddButton_Click(object sender, EventArgs e)
