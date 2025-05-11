@@ -11,7 +11,6 @@ namespace FinanceManager
 {
     internal class ExpensesData
     {
-        string stringConnect = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\HP\Documents\FinanceManager.mdf;Integrated Security=True;Connect Timeout=30";
         public int ID { get; set; }
         public string Category { get; set; }
         public string Item { get; set; }
@@ -19,14 +18,15 @@ namespace FinanceManager
         public string Description { get; set; }
         public string DateExpenses { get; set; }
 
-        public List<ExpensesData> expensesListData()
+        public List<ExpensesData> expensesListData(int userId)
         {
             List<ExpensesData> listData = new List<ExpensesData>();
-            using (SqlConnection conn = new SqlConnection(stringConnect))
+            using (SqlConnection conn = new SqlConnection(Session.stringConnection))
             {
                 conn.Open();
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM expenses", conn))
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM expenses WHERE user_id = @user_id", conn))
                 {
+                    cmd.Parameters.AddWithValue("@user_id", userId);
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())

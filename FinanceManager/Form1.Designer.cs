@@ -32,7 +32,6 @@
             this.LoginSignUpButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.close = new System.Windows.Forms.Label();
             this.SigninLabel = new System.Windows.Forms.Label();
             this.UsernameLabel = new System.Windows.Forms.Label();
@@ -41,6 +40,7 @@
             this.LoginPassword = new System.Windows.Forms.TextBox();
             this.LoginButton = new System.Windows.Forms.Button();
             this.LoginShowPassword = new System.Windows.Forms.CheckBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -94,24 +94,12 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(233)))), ((int)(((byte)(242)))));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
             this.label4.Location = new System.Drawing.Point(12, 284);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(441, 28);
             this.label4.TabIndex = 5;
             this.label4.Text = "Trackify - Your Income and Expenses";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.pictureBox1.Image = global::FinanceManager.Properties.Resources.logo_128;
-            this.pictureBox1.Location = new System.Drawing.Point(163, 108);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(128, 128);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // close
             // 
@@ -154,7 +142,8 @@
             // 
             // LoginUsername
             // 
-            this.LoginUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.LoginUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
+            this.LoginUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.LoginUsername.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.LoginUsername.Location = new System.Drawing.Point(514, 204);
             this.LoginUsername.Name = "LoginUsername";
@@ -176,7 +165,8 @@
             // 
             // LoginPassword
             // 
-            this.LoginPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.LoginPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
+            this.LoginPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.LoginPassword.Font = new System.Drawing.Font("Century Gothic", 10F);
             this.LoginPassword.Location = new System.Drawing.Point(514, 288);
             this.LoginPassword.Name = "LoginPassword";
@@ -186,10 +176,10 @@
             // 
             // LoginButton
             // 
-            this.LoginButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(225)))), ((int)(((byte)(242)))));
-            this.LoginButton.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
-            this.LoginButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(156)))), ((int)(((byte)(181)))));
-            this.LoginButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(156)))), ((int)(((byte)(181)))));
+            this.LoginButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
+            this.LoginButton.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.LoginButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(145)))), ((int)(((byte)(168)))));
+            this.LoginButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(145)))), ((int)(((byte)(168)))));
             this.LoginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LoginButton.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.LoginButton.ForeColor = System.Drawing.Color.Black;
@@ -214,6 +204,18 @@
             this.LoginShowPassword.Text = "Show Password";
             this.LoginShowPassword.UseVisualStyleBackColor = false;
             this.LoginShowPassword.CheckedChanged += new System.EventHandler(this.LoginShowPassword_CheckedChanged);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.pictureBox1.Image = global::FinanceManager.Properties.Resources.logo_128;
+            this.pictureBox1.Location = new System.Drawing.Point(163, 108);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(128, 128);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // Form1
             // 

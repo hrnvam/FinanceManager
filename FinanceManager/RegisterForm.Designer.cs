@@ -33,7 +33,6 @@
             this.RegisterSignInButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.RegisterShowPassword = new System.Windows.Forms.CheckBox();
             this.RegisterPassword = new System.Windows.Forms.TextBox();
             this.PasswordLabel = new System.Windows.Forms.Label();
@@ -43,16 +42,17 @@
             this.close = new System.Windows.Forms.Label();
             this.RegisterConfirmPassword = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // SignUpButton
             // 
-            this.SignUpButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(225)))), ((int)(((byte)(242)))));
-            this.SignUpButton.FlatAppearance.BorderColor = System.Drawing.Color.Teal;
-            this.SignUpButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(156)))), ((int)(((byte)(181)))));
-            this.SignUpButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(156)))), ((int)(((byte)(181)))));
+            this.SignUpButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
+            this.SignUpButton.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.SignUpButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(145)))), ((int)(((byte)(168)))));
+            this.SignUpButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(145)))), ((int)(((byte)(168)))));
             this.SignUpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SignUpButton.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.SignUpButton.ForeColor = System.Drawing.Color.Black;
@@ -111,24 +111,13 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(233)))), ((int)(((byte)(242)))));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
             this.label4.Location = new System.Drawing.Point(12, 284);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(441, 28);
             this.label4.TabIndex = 5;
             this.label4.Text = "Trackify - Your Income and Expenses";
             this.label4.Click += new System.EventHandler(this.label4_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.pictureBox1.Image = global::FinanceManager.Properties.Resources.logo_128;
-            this.pictureBox1.Location = new System.Drawing.Point(163, 108);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(128, 128);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
             // 
             // RegisterShowPassword
             // 
@@ -146,7 +135,8 @@
             // 
             // RegisterPassword
             // 
-            this.RegisterPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.RegisterPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
+            this.RegisterPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.RegisterPassword.Location = new System.Drawing.Point(519, 281);
             this.RegisterPassword.Name = "RegisterPassword";
             this.RegisterPassword.PasswordChar = '*';
@@ -169,7 +159,8 @@
             // 
             // RegisterUsername
             // 
-            this.RegisterUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.RegisterUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
+            this.RegisterUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.RegisterUsername.Location = new System.Drawing.Point(519, 197);
             this.RegisterUsername.Name = "RegisterUsername";
             this.RegisterUsername.Size = new System.Drawing.Size(359, 26);
@@ -215,7 +206,8 @@
             // 
             // RegisterConfirmPassword
             // 
-            this.RegisterConfirmPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.RegisterConfirmPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
+            this.RegisterConfirmPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.RegisterConfirmPassword.Location = new System.Drawing.Point(519, 363);
             this.RegisterConfirmPassword.Name = "RegisterConfirmPassword";
             this.RegisterConfirmPassword.PasswordChar = '*';
@@ -233,6 +225,17 @@
             this.label1.Size = new System.Drawing.Size(183, 23);
             this.label1.TabIndex = 23;
             this.label1.Text = "Confirm Password";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.pictureBox1.Image = global::FinanceManager.Properties.Resources.logo_128;
+            this.pictureBox1.Location = new System.Drawing.Point(163, 108);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(128, 128);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
             // RegisterForm
             // 

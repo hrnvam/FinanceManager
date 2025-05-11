@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.CategoryDeleteButton = new System.Windows.Forms.Button();
             this.CategoryClearButton = new System.Windows.Forms.Button();
@@ -67,10 +69,11 @@
             // 
             // CategoryDeleteButton
             // 
-            this.CategoryDeleteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(249)))));
-            this.CategoryDeleteButton.FlatAppearance.BorderSize = 0;
+            this.CategoryDeleteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
+            this.CategoryDeleteButton.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.CategoryDeleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CategoryDeleteButton.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Bold);
-            this.CategoryDeleteButton.Location = new System.Drawing.Point(165, 441);
+            this.CategoryDeleteButton.Location = new System.Drawing.Point(165, 476);
             this.CategoryDeleteButton.Name = "CategoryDeleteButton";
             this.CategoryDeleteButton.Size = new System.Drawing.Size(91, 42);
             this.CategoryDeleteButton.TabIndex = 8;
@@ -80,10 +83,11 @@
             // 
             // CategoryClearButton
             // 
-            this.CategoryClearButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(249)))));
-            this.CategoryClearButton.FlatAppearance.BorderSize = 0;
+            this.CategoryClearButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
+            this.CategoryClearButton.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.CategoryClearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CategoryClearButton.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Bold);
-            this.CategoryClearButton.Location = new System.Drawing.Point(31, 441);
+            this.CategoryClearButton.Location = new System.Drawing.Point(31, 476);
             this.CategoryClearButton.Name = "CategoryClearButton";
             this.CategoryClearButton.Size = new System.Drawing.Size(91, 42);
             this.CategoryClearButton.TabIndex = 7;
@@ -93,10 +97,11 @@
             // 
             // CategoryUpdateButton
             // 
-            this.CategoryUpdateButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(249)))));
-            this.CategoryUpdateButton.FlatAppearance.BorderSize = 0;
+            this.CategoryUpdateButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
+            this.CategoryUpdateButton.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.CategoryUpdateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CategoryUpdateButton.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Bold);
-            this.CategoryUpdateButton.Location = new System.Drawing.Point(164, 369);
+            this.CategoryUpdateButton.Location = new System.Drawing.Point(164, 404);
             this.CategoryUpdateButton.Name = "CategoryUpdateButton";
             this.CategoryUpdateButton.Size = new System.Drawing.Size(91, 42);
             this.CategoryUpdateButton.TabIndex = 6;
@@ -106,10 +111,11 @@
             // 
             // CategoryAddButton
             // 
-            this.CategoryAddButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(249)))));
-            this.CategoryAddButton.FlatAppearance.BorderSize = 0;
+            this.CategoryAddButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
+            this.CategoryAddButton.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.CategoryAddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CategoryAddButton.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.CategoryAddButton.Location = new System.Drawing.Point(30, 369);
+            this.CategoryAddButton.Location = new System.Drawing.Point(30, 404);
             this.CategoryAddButton.Name = "CategoryAddButton";
             this.CategoryAddButton.Size = new System.Drawing.Size(91, 42);
             this.CategoryAddButton.TabIndex = 0;
@@ -119,7 +125,7 @@
             // 
             // CategoryStatus
             // 
-            this.CategoryStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(233)))), ((int)(((byte)(242)))));
+            this.CategoryStatus.BackColor = System.Drawing.Color.White;
             this.CategoryStatus.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Bold);
             this.CategoryStatus.FormattingEnabled = true;
             this.CategoryStatus.Items.AddRange(new object[] {
@@ -132,7 +138,7 @@
             // 
             // CategoryType
             // 
-            this.CategoryType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(233)))), ((int)(((byte)(242)))));
+            this.CategoryType.BackColor = System.Drawing.Color.White;
             this.CategoryType.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Bold);
             this.CategoryType.FormattingEnabled = true;
             this.CategoryType.Items.AddRange(new object[] {
@@ -165,7 +171,7 @@
             // 
             // CategoryName
             // 
-            this.CategoryName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(233)))), ((int)(((byte)(242)))));
+            this.CategoryName.BackColor = System.Drawing.Color.White;
             this.CategoryName.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Bold);
             this.CategoryName.Location = new System.Drawing.Point(31, 73);
             this.CategoryName.Name = "CategoryName";
@@ -195,22 +201,44 @@
             // dataGridView1
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(225)))), ((int)(((byte)(233)))));
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(233)))), ((int)(((byte)(242)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(220)))), ((int)(((byte)(232)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(220)))), ((int)(((byte)(232)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(225)))), ((int)(((byte)(233)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 10F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(125)))), ((int)(((byte)(146)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dataGridView1.EnableHeadersVisualStyles = false;
+            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(125)))), ((int)(((byte)(146)))));
             this.dataGridView1.Location = new System.Drawing.Point(18, 25);
             this.dataGridView1.Name = "dataGridView1";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(220)))), ((int)(((byte)(232)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(220)))), ((int)(((byte)(232)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(548, 555);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);

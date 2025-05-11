@@ -13,7 +13,6 @@ namespace FinanceManager
 {
     public partial class ExpensesForm : UserControl
     {
-        string stringConnect = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\HP\Documents\FinanceManager.mdf;Integrated Security=True;Connect Timeout=30";
         private int getID = 0;
 
         public ExpensesForm()
@@ -25,18 +24,19 @@ namespace FinanceManager
         public void displayExpensesData()
         {
             ExpensesData eData = new ExpensesData();
-            List<ExpensesData> listData = eData.expensesListData();
+            List<ExpensesData> listData = eData.expensesListData(Session.UserId);
             dataGridView1.DataSource = listData;
         }
         public void displayCategyList()
         {
-            using (SqlConnection connect = new SqlConnection(stringConnect))
+            using (SqlConnection connect = new SqlConnection(Session.stringConnection))
             {
                 connect.Open();
-                using (SqlCommand cmd = new SqlCommand("SELECT category FROM categories WHERE type = @type AND status = @status", connect))
+                using (SqlCommand cmd = new SqlCommand("SELECT category FROM categories WHERE type = @type AND status = @status AND user_id = @user_id", connect))
                 {
                     cmd.Parameters.AddWithValue("@type", "Expenses");
                     cmd.Parameters.AddWithValue("@status", "Active");
+                    cmd.Parameters.AddWithValue("@user_id", Session.UserId);
 
                     ExpensesCategory.Items.Clear();
 
@@ -66,11 +66,11 @@ namespace FinanceManager
             }
             else
             {
-                using (SqlConnection connect = new SqlConnection(stringConnect))
+                using (SqlConnection connect = new SqlConnection(Session.stringConnection))
                 {
                     connect.Open();
-                    string query = "INSERT INTO expenses (category, item, amount, description, date_expenses, date_insert)" +
-                        "VALUES (@cat, @item, @amount, @desc, @date_e, @date)";
+                    string query = "INSERT INTO expenses (category, item, amount, description, date_expenses, date_insert, user_id)" +
+                        "VALUES (@cat, @item, @amount, @desc, @date_e, @date, @userId)";
                     using (SqlCommand cmd = new SqlCommand(query, connect))
                     {
                         cmd.Parameters.AddWithValue("@cat", ExpensesCategory.SelectedItem.ToString());
@@ -79,6 +79,7 @@ namespace FinanceManager
                         cmd.Parameters.AddWithValue("@desc", ExpensesDescription.Text);
                         cmd.Parameters.AddWithValue("@date_e", ExpensesDate.Value);
                         cmd.Parameters.AddWithValue("@date", DateTime.Today);
+                        cmd.Parameters.AddWithValue("@userId", Session.UserId);
 
                         cmd.ExecuteNonQuery();
                         clearFields();
@@ -103,12 +104,12 @@ namespace FinanceManager
             }
             else
             {
-                using (SqlConnection connect = new SqlConnection(stringConnect))
+                using (SqlConnection connect = new SqlConnection(Session.stringConnection))
                 {
                     connect.Open();
 
                     string query = "UPDATE expenses SET category=@cat, item=@item, amount=@amount, " +
-                                   "description=@desc, date_expenses=@date_e WHERE id=@id";
+                                   "description=@desc, date_expenses=@date_e WHERE id=@id AND user_id=@userId";
 
                     using (SqlCommand cmd = new SqlCommand(query, connect))
                     {
@@ -118,6 +119,7 @@ namespace FinanceManager
                         cmd.Parameters.AddWithValue("@desc", ExpensesDescription.Text);
                         cmd.Parameters.AddWithValue("@date_e", ExpensesDate.Value);
                         cmd.Parameters.AddWithValue("@id", getID);
+                        cmd.Parameters.AddWithValue("@userId", Session.UserId);
 
                         cmd.ExecuteNonQuery();
                         clearFields();
@@ -153,15 +155,16 @@ namespace FinanceManager
             {
                 if (MessageBox.Show("Are you sure you want to delete this item?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    using (SqlConnection connect = new SqlConnection(stringConnect))
+                    using (SqlConnection connect = new SqlConnection(Session.stringConnection))
                     {
                         connect.Open();
 
-                        string query = "DELETE FROM expenses WHERE id=@id";
+                        string query = "DELETE FROM expenses WHERE id=@id AND user_id=@userId";
 
                         using (SqlCommand cmd = new SqlCommand(query, connect))
                         {
                             cmd.Parameters.AddWithValue("@id", getID);
+                            cmd.Parameters.AddWithValue("@userId", Session.UserId);
 
                             cmd.ExecuteNonQuery();
                             clearFields();
@@ -172,6 +175,14 @@ namespace FinanceManager
                 }
             }
             displayExpensesData();
+        }
+
+        private void ExpensesForm_VisibleChanged(object sender, EventArgs e)
+        {
+            if (this.Visible)
+            {
+                displayCategyList();
+            }
         }
     }
 }

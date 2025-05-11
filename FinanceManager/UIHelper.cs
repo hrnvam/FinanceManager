@@ -55,9 +55,15 @@ namespace FinanceManager
             button.Region = new Region(GetRoundedRectPath(button.ClientRectangle, cornerRadius));
             button.FlatStyle = FlatStyle.Flat;
             button.FlatAppearance.BorderSize = 0;
+            button.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            button.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            button.TabStop = false;
+            button.UseVisualStyleBackColor = false;
+
 
             button.Paint += (s, pe) =>
             {
+                ControlPaint.DrawFocusRectangle(pe.Graphics, Rectangle.Empty);
                 using (Pen borderPen = new Pen(borderColor, borderWidth))
                 {
                     pe.Graphics.SmoothingMode = SmoothingMode.AntiAlias;

@@ -17,6 +17,10 @@ namespace FinanceManager
         {
             InitializeComponent();
             UIHelper.SetRoundedCorners(this, 30);
+            dashboardForm1.Visible = true;
+            categoryForm1.Visible = false;
+            incomeForm11.Visible = false;
+            expensesForm1.Visible = false;
         }
 
         protected override void OnPaintBackground(PaintEventArgs e)
@@ -44,13 +48,11 @@ namespace FinanceManager
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            UIHelper.StyleRoundedButton(DashboardButton, 12);
-            UIHelper.StyleRoundedButton(CategoryButton, 12);
-            UIHelper.StyleRoundedButton(IncomeButton, 12);
-            UIHelper.StyleRoundedButton(ExpensesButton, 12);
-            UIHelper.StyleRoundedButton(LogoutButton, 12);
-
-
+            //UIHelper.StyleRoundedButton(DashboardButton, 12);
+            //UIHelper.StyleRoundedButton(CategoryButton, 12);
+            //UIHelper.StyleRoundedButton(IncomeButton, 12);
+            //UIHelper.StyleRoundedButton(ExpensesButton, 12);
+            //UIHelper.StyleRoundedButton(LogoutButton, 12);
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -84,7 +86,7 @@ namespace FinanceManager
         {
             dashboardForm1.Visible = true;
             categoryForm1.Visible = false;
-            incomeForm1.Visible = false;
+            incomeForm11.Visible = false;
             expensesForm1.Visible = false;
         }
 
@@ -92,7 +94,7 @@ namespace FinanceManager
         {
             dashboardForm1.Visible = false;
             categoryForm1.Visible = true;
-            incomeForm1.Visible = false;
+            incomeForm11.Visible = false;
             expensesForm1.Visible = false;
         }
 
@@ -100,7 +102,7 @@ namespace FinanceManager
         {
             dashboardForm1.Visible = false;
             categoryForm1.Visible = false;
-            incomeForm1.Visible = true;
+            incomeForm11.Visible = true;
             expensesForm1.Visible = false;
         }
 
@@ -108,8 +110,18 @@ namespace FinanceManager
         {
             dashboardForm1.Visible = false;
             categoryForm1.Visible = false;
-            incomeForm1.Visible = false;
+            incomeForm11.Visible = false;
             expensesForm1.Visible = true;
+        }
+
+        private void incomeForm11_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dashboardForm1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
